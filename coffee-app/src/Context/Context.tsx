@@ -6,8 +6,8 @@ import BeansData from '../data/BeanData';
 
 
 export interface CoffeeShopContextType {
-  coffeeData: CoffeeAndBeanDataType[];
-  beanData: CoffeeAndBeanDataType[];
+  coffeeDatas: CoffeeAndBeanDataType[];
+  beanDatas: CoffeeAndBeanDataType[];
 }
 
 export const CoffeeShopContext = createContext<Partial<CoffeeShopContextType>>({});
@@ -18,14 +18,14 @@ interface CoffeeShopContextProviderProps {
 
 export const CoffeeShopContextProvider: React.FC<CoffeeShopContextProviderProps> = ({ children }) => {
   
-  const [coffeeData, setCoffeeData] = useState<CoffeeAndBeanDataType[]>(CoffeeData);
-  const [beanData, setBeanData] = useState<CoffeeAndBeanDataType[]>(BeansData);
+  const [coffeeDatas, setCoffeeDatas] = useState<CoffeeAndBeanDataType[]>(CoffeeData);
+  const [beanDatas, setBeanDatas] = useState<CoffeeAndBeanDataType[]>(BeansData);
 
-  console.log(coffeeData);
+  console.log(coffeeDatas);
 
   const contextValue: CoffeeShopContextType = {
-    coffeeData,
-    beanData
+    coffeeDatas,
+    beanDatas
   }
 
   return (

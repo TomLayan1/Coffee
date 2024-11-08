@@ -1,4 +1,6 @@
-const CoffeeData = [
+import { CoffeeAndBeanDataType } from "../interface";
+
+const CoffeeData: CoffeeAndBeanDataType[] = [
   {
     id: 'C1',
     name: 'Americano',

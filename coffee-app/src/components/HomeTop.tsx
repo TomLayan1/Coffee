@@ -50,7 +50,7 @@ export default function HomeTop() {
       </View>
       <View className="pl-7">
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          <View className="flex-row gap-6">
+          <View className="flex-row gap-6 pr-7">
             {coffeeTypes.map(coffee => (
               <Pressable key={coffee.id} onPress={() => handlePress(coffee.id)}>
                 <Text className={`text-[16px] font-bold ${coffee.name === currentCoffee ? 'text-brownColor' : 'text-lightGray' }`}>{coffee.name}</Text>
