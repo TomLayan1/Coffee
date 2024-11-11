@@ -15,7 +15,7 @@ module.exports = {
         whiteColor: '#FFFFFF'
       },
       boxShadow: {
-        customShadow: ''
+        customShadow: '0 2px 10px rgba(0, 0, 0, 0.1)'
       }
     },
   },

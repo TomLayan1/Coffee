@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
+import { Image, Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { Coffee } from "../interface";
+
 
 export default function HomeTop() {
   // State to select coffee
   const [currentCoffee, setCurrentCoffee] = useState<string>('All');
+
+  const square = require('../assets/app-images/square.png')
+  const person = require('../assets/app-images/person.png')
 
   const coffeeTypes: Coffee[] = [
     {
@@ -40,13 +44,17 @@ export default function HomeTop() {
   }
 
   return(
-    <View className="mb-7">
+    <View className="mb-7 pt-2">
+      <View className="px-7 flex-row items-center justify-between mb-7">
+        <Image source={square} className="max-w-[29px] max-h-[29px]" />
+        <Image source={person} className="max-w-[29px] max-h-[29px]" />
+      </View>
       <View className="px-7">
-        <Text className="text-white text-5xl font-bold leading-snug mb-8">Find the best coffee for you</Text>
+        <Text className="text-white text-5xl font-bold leading-snug mb-7">Find the best coffee for you</Text>
         <TextInput
-          style={{ color: "gray"}}
+          style={{ color: "gray" }}
           placeholderTextColor="gray"
-          className="bg-darkGray text-lg py-3 px-5 rounded-xl mb-8" placeholder="Find Your coffee.."/>
+          className="bg-darkGray text-lg py-3 px-5 rounded-xl mb-7" placeholder="Find Your coffee.."/>
       </View>
       <View className="pl-7">
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
