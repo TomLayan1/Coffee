@@ -13,6 +13,9 @@ module.exports = {
         lightGray: '#52555A',
         lighterGrey: '#AEAEAE',
         whiteColor: '#FFFFFF'
+      },
+      boxShadow: {
+        customShadow: ''
       }
     },
   },

@@ -1,17 +1,14 @@
-import { StatusBar, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { StatusBar, View } from 'react-native';
 import "./global.css"
-import Home from './src/screens/Home';
+import MainContainer from './src/MainContainer';
 import { CoffeeShopContextProvider } from './src/Context/Context';
 
 export default function App() {
   return (
-    <View className='flex-1 bg-darkBg pt-4'>
+    <View className='flex-1 bg-darkBg'>
       <StatusBar barStyle="light-content" />
       <CoffeeShopContextProvider>
-        <NavigationContainer>
-          <Home />
-        </NavigationContainer>
+        <MainContainer />
       </CoffeeShopContextProvider>
     </View>
   );
