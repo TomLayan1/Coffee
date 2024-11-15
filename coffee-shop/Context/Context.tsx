@@ -10,7 +10,9 @@ export interface CoffeeShopContextType {
   coffeeDatas: CoffeeAndBeanDataType[];
   beanDatas: CoffeeAndBeanDataType[];
   handleBeansDetail: (id: string) => void;
-  handleCoffeeDetail: (id: string) => void
+  handleCoffeeDetail: (id: string) => void;
+  coffeeDetail: CoffeeAndBeansDetailsType | null;
+  beansDetail: CoffeeAndBeansDetailsType | null
 }
 
 export const CoffeeShopContext = createContext<CoffeeShopContextType>({
@@ -18,6 +20,8 @@ export const CoffeeShopContext = createContext<CoffeeShopContextType>({
   beanDatas: [],
   handleBeansDetail: () => {},
   handleCoffeeDetail: () => {},
+  coffeeDetail: null,
+  beansDetail: null
 });
 
 
@@ -28,22 +32,20 @@ interface CoffeeShopContextProviderProps {
 export const CoffeeShopContextProvider: React.FC<CoffeeShopContextProviderProps> = ({ children }) => {
   // Coffee data
   const [coffeeDatas, setCoffeeDatas] = useState<CoffeeAndBeanDataType[]>(CoffeeData);
-  
+  console.log(coffeeDatas)
   // Bean data
   const [beanDatas, setBeanDatas] = useState<CoffeeAndBeanDataType[]>(BeansData);
 
     // Beans deatails
   const [coffeeDetail, setCoffeeDetail] = useState<CoffeeAndBeansDetailsType | null>(null)
-  console.log(coffeeDetail)
 
   // Beans deatails
   const [beansDetail, setBeansDetail] = useState<CoffeeAndBeansDetailsType | null>(null)
-  console.log(beansDetail)
 
   // Function for getting beans details
   const handleCoffeeDetail = (id: string) => {
-    const selectedBeans = CoffeeData.find(bean => bean.id === id)
-    selectedBeans && setBeansDetail(selectedBeans)
+    const selectedCoffee = CoffeeData.find(bean => bean.id === id)
+    selectedCoffee && setCoffeeDetail(selectedCoffee)
   }
 
   // Function for getting beans details
@@ -56,7 +58,9 @@ export const CoffeeShopContextProvider: React.FC<CoffeeShopContextProviderProps>
     coffeeDatas,
     beanDatas,
     handleBeansDetail,
-    handleCoffeeDetail
+    handleCoffeeDetail,
+    coffeeDetail,
+    beansDetail
   }
 
   return (
